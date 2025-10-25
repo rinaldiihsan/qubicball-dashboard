@@ -17,12 +17,12 @@ async function UsersData() {
   return <UserTable users={users} />;
 }
 
-export default function DashboardPage() {
+export default function UsersPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
-        <p className="text-muted-foreground">Manage and view all users in the system</p>
+        <h1 className="text-3xl font-bold tracking-tight">Users</h1>
+        <p className="text-muted-foreground">View and manage all users in the system</p>
       </div>
 
       <Suspense fallback={<UserTableSkeleton />}>
