@@ -26,14 +26,14 @@ export function UserTable({ users }: UserTableProps) {
   const debouncedSearch = useDebounce(search, 300);
 
   const filteredAndSortedUsers = useMemo(() => {
-    let filtered = users;
+    let filtered = [...users];
 
     if (debouncedSearch) {
       const searchLower = debouncedSearch.toLowerCase();
-      filtered = users.filter((user) => user.name.toLowerCase().includes(searchLower) || user.email.toLowerCase().includes(searchLower) || user.username.toLowerCase().includes(searchLower));
+      filtered = filtered.filter((user) => user.name.toLowerCase().includes(searchLower) || user.email.toLowerCase().includes(searchLower) || user.username.toLowerCase().includes(searchLower));
     }
 
-    filtered.sort((a, b) => {
+    filtered = filtered.sort((a, b) => {
       let aValue: string;
       let bValue: string;
 
@@ -46,9 +46,9 @@ export function UserTable({ users }: UserTableProps) {
       }
 
       if (sortOrder === 'asc') {
-        return aValue > bValue ? 1 : -1;
+        return aValue.localeCompare(bValue);
       } else {
-        return aValue < bValue ? 1 : -1;
+        return bValue.localeCompare(aValue);
       }
     });
 

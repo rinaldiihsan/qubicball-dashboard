@@ -28,7 +28,6 @@ export interface User {
   company: Company;
 }
 
-// For table display (simplified)
 export interface UserTableData {
   id: number;
   name: string;

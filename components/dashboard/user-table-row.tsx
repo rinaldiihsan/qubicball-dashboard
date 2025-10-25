@@ -16,7 +16,7 @@ function UserTableRowComponent({ user }: UserTableRowProps) {
     <TableRow>
       <TableCell className="font-medium">{user.name}</TableCell>
       <TableCell>{user.username}</TableCell>
-      <TableCell>{user.email}</TableCell>
+      <TableCell className="lowercase">{user.email}</TableCell>
       <TableCell>{user.company.name}</TableCell>
       <TableCell>{user.address.city}</TableCell>
       <TableCell>

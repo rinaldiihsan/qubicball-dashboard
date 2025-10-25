@@ -44,7 +44,7 @@ export function MobileSidebar() {
         </Button>
       </SheetTrigger>
       <SheetContent side="left" className="w-64 p-0">
-        <SheetHeader className="h-16 border-b px-6 flex items-center justify-start">
+        <SheetHeader className="h-16 border-b px-6 flex items-center justify-center">
           <SheetTitle className="text-xl font-bold">QubicBall</SheetTitle>
         </SheetHeader>
 

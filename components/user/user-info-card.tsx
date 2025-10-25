@@ -25,7 +25,7 @@ export function UserInfoCard({ user }: UserInfoCardProps) {
             <Mail className="h-5 w-5 text-muted-foreground mt-0.5" />
             <div>
               <p className="text-sm font-medium">Email</p>
-              <p className="text-sm text-muted-foreground">{user.email}</p>
+              <p className="text-sm text-muted-foreground lowercase">{user.email}</p>
             </div>
           </div>
 

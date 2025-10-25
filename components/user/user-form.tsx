@@ -107,7 +107,7 @@ export function UserForm({ user }: UserFormProps) {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input type="email" disabled={isLoading} {...field} />
+                      <Input type="email" disabled={isLoading} {...field} onChange={(e) => field.onChange(e.target.value.toLowerCase())} className="lowercase" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

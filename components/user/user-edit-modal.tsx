@@ -75,15 +75,15 @@ export function UserEditModal({ user }: UserEditModalProps) {
           Edit User
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl max-h-[90vh]">
+      <DialogContent className="max-w-2xl max-h-[90vh]">
         <DialogHeader>
           <DialogTitle>Edit User</DialogTitle>
           <DialogDescription>Update user information and save changes</DialogDescription>
         </DialogHeader>
 
         <ScrollArea className="max-h-[calc(90vh-120px)] pr-4">
-          <Form {...form} >
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 p-2">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <div className="grid gap-4 sm:grid-cols-2">
                 <FormField
                   control={form.control}
@@ -120,7 +120,7 @@ export function UserEditModal({ user }: UserEditModalProps) {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input type="email" disabled={isLoading} {...field} />
+                        <Input type="email" disabled={isLoading} {...field} onChange={(e) => field.onChange(e.target.value.toLowerCase())} className="lowercase" />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
