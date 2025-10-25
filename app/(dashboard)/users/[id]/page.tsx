@@ -3,13 +3,13 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { getUserById } from '@/lib/api/users';
 import { getPostsByUserId } from '@/lib/api/posts';
+import { UserInfoCard } from '@/components/user/user-info-card';
+import { UserEditModal } from '@/components/user/user-edit-modal';
+import { PostList } from '@/components/user/post-list';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { Suspense } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
-import { UserInfoCard } from '@/components/user/user-info-card';
-import { PostList } from '@/components/user/post-list';
-import { UserForm } from '@/components/user/user-form';
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params;
@@ -42,7 +42,6 @@ function LoadingSkeleton() {
         <Skeleton className="h-[400px]" />
         <Skeleton className="h-[400px]" />
       </div>
-      <Skeleton className="h-[500px]" />
     </div>
   );
 }
@@ -53,12 +52,18 @@ async function UserDetailData({ id }: { id: number }) {
 
     return (
       <>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">User Details</h1>
+            <p className="text-muted-foreground">View and edit user information</p>
+          </div>
+          <UserEditModal user={user} />
+        </div>
+
         <div className="grid gap-6 lg:grid-cols-2">
           <UserInfoCard user={user} />
           <PostList posts={posts} />
         </div>
-
-        <UserForm user={user} />
       </>
     );
   } catch (error) {
@@ -83,11 +88,6 @@ export default async function UserDetailPage({ params }: { params: Promise<{ id:
             Back to Dashboard
           </Button>
         </Link>
-      </div>
-
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">User Details</h1>
-        <p className="text-muted-foreground">View and edit user information</p>
       </div>
 
       <Suspense fallback={<LoadingSkeleton />}>

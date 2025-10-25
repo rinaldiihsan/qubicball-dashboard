@@ -15,6 +15,11 @@ export function UserInfoCard({ user }: UserInfoCardProps) {
         <CardTitle>User Information</CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
+        <div className="border-b pb-4">
+          <h1 className="text-2xl font-bold">{user.name}</h1>
+          <p className="text-sm text-muted-foreground">@{user.username}</p>
+        </div>
+
         <div className="space-y-3">
           <div className="flex items-start gap-x-3">
             <Mail className="h-5 w-5 text-muted-foreground mt-0.5" />
