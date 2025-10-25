@@ -7,4 +7,4 @@ export const MOCK_CREDENTIALS = {
 
 export const PUBLIC_ROUTES = ['/login'];
 
-export const PROTECTED_ROUTES = ['/dashboard', '/users'];
+export const PROTECTED_ROUTES = ['/dashboard', '/users', ];
